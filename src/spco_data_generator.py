@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __init__ import *
+
+import csv
+import os
+
+class SpCoDataGenerator():
+    def __init__(self):
+        self.set_param()
+
+    def set_param(self):
+        get_key = input("Please input the number of data\n")
+        print("The number of data is {}\n".format(get_key))
+        #self.place_word_generator(int(get_key))    # 完成
+        #self.robot_position_generator(int(get_key)) # 完成
+        self.object_frequency_generator(int(get_key))
+
+
+    # 場所の単語生成器
+    def place_word_generator(self, num):
+        for i in range(num):
+            path = PLACE_WORD_DATA + str(i + 1)
+            if not os.path.exists(path):
+                os.makedirs(path)
+            fp = open(path + '/Otb.csv', 'a')
+            #print(i)
+            for j in range(i + 1):
+                while j >= len(place_names):
+                    j = j - len(place_names)
+                #print(j)
+                fp.write(place_names[j])
+                fp.write('\n')
+            fp.close()
+        return
+
+    # ロボットの位置生成器
+    def robot_position_generator(self, num):
+        with open(POSITION_DATA + '/pose.csv', 'a') as f:
+            for i in range(num):
+                print(i)
+                while i >= len(robot_poses):
+                    i = i - len(robot_poses)
+                writer = csv.writer(f)
+                writer.writerows([robot_poses[i]])
+        return
+
+
+    # 物体の頻度数生成器 (未完成 → 無情報)
+    def object_frequency_generator(self, num):
+        for i in range(num):
+            ## 物体の単語辞書
+            ## 観測した物体
+            ## BoO
+            ## 全物体
+            fp = open(POSITION_DATA + 'Otb.csv', 'a')
+            #print(i)
+            for j in range(i + 1):
+                while j >= len(place_names):
+                    j = j - len(place_names)
+                #print(j)
+                fp.write(place_names[j])
+                fp.write('\n')
+            fp.close()
+
+        return
+
+
+if __name__ == '__main__':
+    spco_data_generator = SpCoDataGenerator()
+    pass
