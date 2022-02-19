@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 from __init__ import *
 import csv
 import os
@@ -24,11 +25,9 @@ class SpCoDataGenerator():
             if not os.path.exists(path):
                 os.makedirs(path)
             fp = open(path + '/Otb.csv', 'a')
-            # print(i)
             for j in range(i + 1):
                 while j >= len(place_names):
                     j = j - len(place_names)
-                # print(j)
                 fp.write(place_names[j])
                 fp.write('\n')
             fp.close()
@@ -38,7 +37,7 @@ class SpCoDataGenerator():
     def robot_position_generator(self, num):
         with open(POSITION_DATA + '/pose.csv', 'a') as f:
             for i in range(num):
-                print(i)
+                #print(i)
                 while i >= len(robot_poses):
                     i = i - len(robot_poses)
                 writer = csv.writer(f)

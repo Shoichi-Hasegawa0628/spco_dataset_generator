@@ -1,3 +1,7 @@
 # Data files.
 data/
 
+src/*.txt
+src/*.tar
+src/*.npy
+src/wideresnet.py

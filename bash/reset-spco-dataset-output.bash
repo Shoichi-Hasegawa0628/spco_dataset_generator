@@ -1,6 +1,10 @@
 #!/bin/bash
 
 rm -r ../data/*
+rm -r ../src/*.txt
+rm -r ../src/*.tar
+rm -r ../src/*.npy
+rm -r ../src/wideresnet.py
 
 mkdir -p ../data/output/test/img/
 mkdir -p ../data/output/test/map/
