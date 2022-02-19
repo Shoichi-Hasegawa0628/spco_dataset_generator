@@ -11,3 +11,9 @@ OBJECT_FREQUENCY_DATA = SPCO_DATA_PATH + "tmp_boo/"
 
 place_names = ["living", "bedroom", "kitchen"]
 robot_poses = [[0, 0], [1, 1], [2, 2]]
+object_dictionary = ["plate", "bowl", "pitcher_base", "banana",
+                      "apple", "orange", "cracker_box", "pudding_box",
+                      "chips_bag", "coffee", "muscat", "fruits_juice",
+                      "pig_doll", "sheep_doll", "penguin_doll", "airplane_toy",
+                      "car_toy", "truck_toy", "tooth_paste", "towel",
+                      "cup", "treatments", "sponge", "bath_slipper"]
