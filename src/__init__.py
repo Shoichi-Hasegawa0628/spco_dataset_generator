@@ -11,7 +11,7 @@ POSITION_DATA = SPCO_DATA_PATH
 OBJECT_FREQUENCY_DATA = SPCO_DATA_PATH + "tmp_boo/"
 
 place_names = ["living", "bedroom", "kitchen"]
-robot_poses = [[0, 0], [1, 1], [2, 2]]
+robot_poses = [[0.38, 0.35], [2.93, -1.19], [-0.17, -0.29]]
 object_dictionary = ["plate", "bowl", "pitcher_base", "banana",
                       "apple", "orange", "cracker_box", "pudding_box",
                       "chips_bag", "coffee", "muscat", "fruits_juice",
