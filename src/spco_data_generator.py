@@ -14,9 +14,9 @@ class SpCoDataGenerator():
     def set_param(self):
         get_key = input("Please input the number of data\n")
         print("The number of data is {}\n".format(get_key))
-        self.place_word_generator(int(get_key))
+        #self.place_word_generator(int(get_key))
         self.robot_position_generator(int(get_key))
-        self.object_frequency_generator(int(get_key))
+        #self.object_frequency_generator(int(get_key))
 
     # 場所の単語生成器
     def place_word_generator(self, num):
