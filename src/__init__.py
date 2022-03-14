@@ -12,7 +12,8 @@ OBJECT_FREQUENCY_DATA = SPCO_DATA_PATH + "tmp_boo/"
 
 place_names = ["living", "bedroom", "kitchen"]
 # robot_poses = [[0.38, 0.35], [2.93, -1.19], [-0.17, -0.29]] #sim
-robot_poses = [[2.48, 0.18], [-0.96, -0.16], [-0.10, 1.08]] #real
+# robot_poses = [[2.48, 0.18], [-0.96, -0.16], [-0.10, 1.08]] #real_v1
+robot_poses = [[0.76, -2.41], [0.53, 0.99], [1.69, 0.09]] # real_v2
 object_dictionary = ["plate", "bowl", "pitcher_base", "banana",
                       "apple", "orange", "cracker_box", "pudding_box",
                       "chips_bag", "coffee", "muscat", "fruits_juice",
