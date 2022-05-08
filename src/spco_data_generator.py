@@ -16,7 +16,7 @@ class SpCoDataGenerator():
         print("The number of data is {}\n".format(get_key))
         #self.place_word_generator(int(get_key))
         self.robot_position_generator(int(get_key))
-        #self.object_frequency_generator(int(get_key))
+        self.object_frequency_generator(int(get_key))
 
     # 場所の単語生成器
     def place_word_generator(self, num):
@@ -45,6 +45,7 @@ class SpCoDataGenerator():
         return
 
     # 物体の頻度数生成器
+    # 指定した物体をカウントする
     def object_frequency_generator(self, num):
         word = []  # 物体を観測しない場合
 
