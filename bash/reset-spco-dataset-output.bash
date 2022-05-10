@@ -6,7 +6,9 @@ rm -r ../src/*.tar
 rm -r ../src/*.npy
 rm -r ../src/wideresnet.py
 
+mkdir -p ../data/output/test/image/
 mkdir -p ../data/output/test/img/
+mkdir -p ../data/output/test/img_pre/
 mkdir -p ../data/output/test/map/
 mkdir -p ../data/output/test/particle/
 mkdir -p ../data/output/test/tmp/

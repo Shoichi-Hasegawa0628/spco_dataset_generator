@@ -37,13 +37,17 @@ class ObjectFeatureServer():
 
         rospy.loginfo("[Service spco_data/object] Ready")
 
-        files = os.listdir(PLACE_IMAGE_DATA)
-        for i in range(len(files)):
-            self.frame = cv2.imread(PLACE_IMAGE_DATA + "/{}.png".format(i + 1))
-            raw_img = self.cv_bridge.cv2_to_compressed_imgmsg(self.frame)
-            self.object_server(i + 1, raw_img)
+        folders = os.listdir(PLACE_IMAGE_DATA)
+        for i in range(len(folders)):
+            files = os.listdir(PLACE_IMAGE_DATA + "{}/".format(i + 1))
+            if not os.path.exists(OBJECT_FREQUENCY_DATA + "{}/".format(i + 1)):
+                os.makedirs(OBJECT_FREQUENCY_DATA + "{}/".format(i + 1))
+            for j in range(len(files)):
+                self.frame = cv2.imread(PLACE_IMAGE_DATA + "{}/".format(i + 1) + "{}.png".format(j))
+                raw_img = self.cv_bridge.cv2_to_compressed_imgmsg(self.frame)
+                self.object_server(j + 1, i + 1, raw_img)
 
-    def object_server(self, step, image):
+    def object_server(self, step, folder_index, image):
         if (os.path.exists(SPCO_DATA_PATH + "/tmp_boo/Object.csv") == True):
             with open(SPCO_DATA_PATH + "/tmp_boo/Object.csv", 'r') as f:
                 reader = csv.reader(f)
@@ -64,7 +68,7 @@ class ObjectFeatureServer():
                 self.object_list = [[]]
                 self.Object_BOO = [[0] * len(object_dictionary)]
                 # self.taking_single_image(trialname, req.step)
-                self.save_data(step)
+                self.save_data(step, folder_index)
                 # return spco_data_objectResponse(True)
                 return
 
@@ -74,15 +78,15 @@ class ObjectFeatureServer():
                 self.object_list.append(object_list)
                 self.make_object_boo()
                 # self.taking_single_image(trialname, req.step)
-                self.save_data(step)
+                self.save_data(step, folder_index)
                 # return spco_data_objectResponse(True)
                 return
 
-        self.save_detection_img(step, self.detect_image)
+        self.save_detection_img(step, folder_index, self.detect_image)
         self.extracting_label()
         self.make_object_boo()
         # self.taking_single_image(trialname, req.step)
-        self.save_data(step)
+        self.save_data(step, folder_index)
         # print("object_list: {}\n".format(self.object_list))
         # print("dictionary: {}\n".format(object_dictionary))
         # print("Bag-of-Objects: {}\n".format(self.Object_BOO))
@@ -116,33 +120,35 @@ class ObjectFeatureServer():
     #     cv2.imwrite(datafolder + trialname + "/object_image/" + str(step) + ".jpg", observed_img)
     #     return
 
-    def save_detection_img(self, step, image):
+    def save_detection_img(self, step, folder_index, image):
         # img = rospy.wait_for_message('/yolov5_ros/output/image/compressed', CompressedImage, timeout=15)
         detect_img = self.cv_bridge.compressed_imgmsg_to_cv2(image)
-        cv2.imwrite(SPCO_DATA_PATH + "/detect_image/" + str(step) + ".png", detect_img)
+        if not os.path.exists(SPCO_DATA_PATH + "/detect_image/" + "{}/".format(folder_index)):
+            os.makedirs(SPCO_DATA_PATH + "/detect_image/" + "{}/".format(folder_index))
+        cv2.imwrite(SPCO_DATA_PATH + "/detect_image/" + "{}/".format(folder_index) + str(step) + ".png", detect_img)
         return
 
-    def save_data(self, step):
+    def save_data(self, step, folder_index):
         # 全時刻の観測された物体のリストを保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/Object.csv"
+        FilePath = OBJECT_FREQUENCY_DATA + "{}/".format(folder_index) + "Object.csv"
         with open(FilePath, 'w') as f:
             writer = csv.writer(f)
             writer.writerows(self.object_list)
 
         # 教示ごとに観測された物体のリストを保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object.csv"
+        FilePath = OBJECT_FREQUENCY_DATA + "{}/".format(folder_index) + str(step) + "_Object.csv"
         with open(FilePath, 'w') as f:
             writer = csv.writer(f)
             writer.writerows(self.object_list)
 
         # 教示ごとのBag-Of-Objects特徴量を保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object_BOO.csv"
+        FilePath = OBJECT_FREQUENCY_DATA + "{}/".format(folder_index) + str(step) + "_Object_BOO.csv"
         with open(FilePath, 'w') as f:
             writer = csv.writer(f)
             writer.writerows(self.Object_BOO)
 
         # 教示ごとの物体の辞書を保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object_W_list.csv"
+        FilePath = OBJECT_FREQUENCY_DATA + "{}/".format(folder_index) + str(step) + "_Object_W_list.csv"
         with open(FilePath, 'w') as f:
             writer = csv.writer(f, lineterminator='\n')
             writer.writerow(object_dictionary)

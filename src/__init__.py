@@ -6,11 +6,12 @@ SPCO_DATA_PATH = str(roslib.packages.get_pkg_dir("spco_dataset_generator")) + "/
 
 PLACE_IMAGE_DATA = SPCO_DATA_PATH + "image/"
 PLACE_IMG_DATA = SPCO_DATA_PATH + "img/"
+PLACE_IMG_PRE_DATA = SPCO_DATA_PATH + "img_pre/"
 PLACE_WORD_DATA = SPCO_DATA_PATH + "tmp/"
 POSITION_DATA = SPCO_DATA_PATH
 OBJECT_FREQUENCY_DATA = SPCO_DATA_PATH + "tmp_boo/"
 
-place_names = ["living", "bedroom", "kitchen"]
+place_names = ["living", "bedroom", "kitchen", "bathroom", "entrance", "study_room"]
 # robot_poses = [[0.38, 0.35], [2.93, -1.19], [-0.17, -0.29]] #sim
 # robot_poses = [[2.48, 0.18], [-0.96, -0.16], [-0.10, 1.08]] #real_v1
 robot_poses = [[0.76, -2.41], [0.53, 0.99], [1.69, 0.09]] # real_v2
@@ -20,3 +21,4 @@ object_dictionary = ["plate", "bowl", "pitcher_base", "banana",
                       "pig_doll", "sheep_doll", "penguin_doll", "airplane_toy",
                       "car_toy", "truck_toy", "tooth_paste", "towel",
                       "cup", "treatments", "sponge", "bath_slipper"]
+
