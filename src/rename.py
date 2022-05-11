@@ -36,11 +36,14 @@ import csv
 #     object_list = [row for row in reader]
 # print(object_list)
 
-# 教示ごとの物体の辞書を保存
-FilePath = OBJECT_FREQUENCY_DATA + "Object_W_list.csv"
-with open(FilePath, 'w') as f:
-    writer = csv.writer(f, lineterminator='\n')
-    writer.writerow(object_dictionary)
+# # 教示ごとの物体の辞書を保存
+# FilePath = OBJECT_FREQUENCY_DATA + "Object_W_list.csv"
+# with open(FilePath, 'w') as f:
+#     writer = csv.writer(f, lineterminator='\n')
+#     writer.writerow(object_dictionary)
+
+
+
 
 
 
