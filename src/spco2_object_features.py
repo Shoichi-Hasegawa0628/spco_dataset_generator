@@ -41,7 +41,7 @@ class ObjectFeatureServer():
         for i in range(len(files)):
             self.frame = cv2.imread(PLACE_IMAGE_DATA + "/{}.png".format(i + 1))
             raw_img = self.cv_bridge.cv2_to_compressed_imgmsg(self.frame)
-            self.object_server(i + 80 + 1, raw_img)
+            self.object_server(i + 1, raw_img)
 
     def object_server(self, step, image):
         if (os.path.exists(SPCO_DATA_PATH + "/tmp_boo/Object.csv") == True):
