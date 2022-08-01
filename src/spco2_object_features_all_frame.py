@@ -16,6 +16,7 @@ import actionlib
 # from sensor_msgs.msg import CompressedImage
 import yolo_ros_msgs.msg as yolo_ros_msgs
 # from yolo_ros_msgs.msg import BoundingBoxes, BoundingBox
+from tqdm import tqdm
 
 # Self Modules
 from __init__ import *
@@ -38,12 +39,12 @@ class ObjectFeatureServer():
         rospy.loginfo("[Service spco_data/object] Ready")
 
         folders = os.listdir(PLACE_IMAGE_DATA)
-        for i in range(len(folders)):
+        for i in tqdm(range(len(folders))):
             files = os.listdir(PLACE_IMAGE_DATA + "{}/".format(i + 1))
             if not os.path.exists(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1)):
                 os.makedirs(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1))
-            print(len(files))
-            for j in range(len(files)):
+            # print(len(files))
+            for j in tqdm(range(len(files))):
                 self.frame = cv2.imread(PLACE_IMAGE_DATA + "{}/".format(i + 1) + "{}.png".format(j))
                 raw_img = self.cv_bridge.cv2_to_compressed_imgmsg(self.frame)
                 self.object_server(j + 1, i + 1, raw_img)

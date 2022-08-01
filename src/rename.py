@@ -8,13 +8,13 @@ import csv
 
 
 # folders = os.listdir(PLACE_IMG_PRE_DATA)
-
-## 特徴量
+#
+# # 特徴量
 # for i in range(len(folders)):
 #     csv_files = os.listdir(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
 #     for j in range(len(csv_files)):
 #         shutil.copyfile(PLACE_IMG_PRE_DATA + "{}/".format(i + 1) + "ft{}.csv".format(j + 1),
-#                         PLACE_IMG_DATA + "ft{}.csv".format((j + 1) + 6*i + 36)) # 0, 18, 36を後ろに書く
+#                         PLACE_IMG_DATA + "ft{}.csv".format((j + 1) + 6*i + 60)) # 0, 30, 60を後ろに書く
 
 ## 画像
 # for i in range(len(folders)):
@@ -30,7 +30,7 @@ for i in range(len(folders)):
     csv_files = os.listdir(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1))
     for j in range(len(csv_files)):
         shutil.copyfile(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1) + "{}_Object_BOO.csv".format(j + 1),
-                        OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 6*i + 36)) # 0, 18, 36
+                        OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 6*i + 60)) # 0, 30, 60
 
 
 # with open("/root/HSR/catkin_ws/src/spco_dataset_generator/data/output/test/sentence.csv", 'r') as f:

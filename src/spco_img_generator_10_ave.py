@@ -8,18 +8,18 @@ import spco2_placescnn as places365
 import numpy as np
 import csv
 from __init__ import *
-
+from tqdm import tqdm
 
 
 class ImageFeatureServer():
 
     def image_server(self):
         folders = os.listdir(PLACE_IMAGE_DATA)
-        for i in range(len(folders)):
+        for i in tqdm(range(len(folders))):
             files = os.listdir(PLACE_IMAGE_DATA + "{}/".format(i + 1))
             if not os.path.exists(PLACE_IMG_PRE_DATA + "{}".format(i + 1)):
                 os.makedirs(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
-            for j in range(len(files)):
+            for j in tqdm(range(len(files))):
                 self.frame = cv2.imread(PLACE_IMAGE_DATA + "{}".format(i + 1) + "/{}.png".format(j))
 
                 convert_img = places365.Image.fromarray(self.frame)  # convert into PIL
@@ -33,7 +33,7 @@ class ImageFeatureServer():
                 fp.write(','.join(map(str, h_x_numpy)))
                 fp.write('\n')
                 fp.close()
-                print("save new feature")
+                # print("save new feature")
                 probs, idx = h_x.sort(0, True)
                 probs = probs.numpy()
                 idx = idx.numpy()
