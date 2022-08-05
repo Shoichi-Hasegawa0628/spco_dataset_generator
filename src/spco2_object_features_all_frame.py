@@ -73,6 +73,8 @@ class ObjectFeatureServer():
             self.Object_BOO = [[0] * len(object_dictionary)]
             # self.taking_single_image(trialname, req.step)
             self.save_data(step, folder_index)
+            self.object_list = []
+            self.Object_BOO = []
             # return spco_data_objectResponse(True)
             return
 
@@ -182,7 +184,7 @@ class ObjectFeatureServer():
                     index = (k + 1) / 10
                     # np.savetxt(PLACE_IMG_DATA + 'ft' + str(int(index)) + '.csv', (sum/10), delimiter=",")
                     ave = sum / 10
-                    # print(ave)
+                    print(ave)
                     ave_true = [int(i) for i in ave]
                     # print(ave_true)
                     with open(OBJECT_FREQUENCY_DATA + "{}/".format(i + 1) + "{}_Object_BOO.csv".format(int(index)), 'w') as f:

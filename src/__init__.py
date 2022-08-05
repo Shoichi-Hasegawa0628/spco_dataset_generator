@@ -17,6 +17,4 @@ place_names = ["living", "kitchen", "bathroom"]
 # robot_poses = [[2.48, 0.18], [-0.96, -0.16], [-0.10, 1.08]] #real_v1
 # robot_poses = [[0.76, -2.41], [0.53, 0.99], [1.69, 0.09]] # real_v2
 
-object_dictionary = ["apple", "orange", "cracker", "chips_bag",
-                      "coffee", "muscat", "penguin_doll", "frog_shaped_sponge",
-                      "cup", "sponge"]
+object_dictionary = ["apple", "cracker", "coffee", "penguin_doll", "frog_shaped_sponge", "cup"]
