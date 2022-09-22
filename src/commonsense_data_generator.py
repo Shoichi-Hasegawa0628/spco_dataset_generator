@@ -38,9 +38,9 @@ class CommonsenseDataGenerator():
 
             # 推論した場所の単語と確率を辞書型に格納
             pre_prob = list(result.values())  # 場所の確率
-            place_name_list = ["living", "kitchen", "bathroom"]
-            place_name_probs = [0, 0, 0]
-            count = 0
+            place_name_list = ["living", "kitchen", "bedroom", "bathroom", "entrance", "study_room"]
+            place_name_probs = [0, 0, 0, 0, 0, 0]
+            count = 0  # 場所の単語 (場所の単語が最高で7文字なのでこのコードで動作可能)
             ct = 1
             for key in result.keys():
                 key_goal = len(str(key))
@@ -49,8 +49,15 @@ class CommonsenseDataGenerator():
                     place_name = str(key)[key_goal - 7: key_goal - 1]
                 elif ct == 2:
                     place_name = str(key)[key_goal - 8: key_goal - 1]
-                else:
+                elif ct == 3:
+                    place_name = str(key)[key_goal - 8: key_goal - 1]
+                elif ct == 4:
                     place_name = str(key)[key_goal - 9: key_goal - 1]
+                elif ct == 5:
+                    place_name = str(key)[key_goal - 9: key_goal - 1]
+                else:
+                    place_name = str(key)[key_goal - 11: key_goal - 1]
+                print(place_name)
                 # ct += 1
 
                 if place_name.find(',') is not None:

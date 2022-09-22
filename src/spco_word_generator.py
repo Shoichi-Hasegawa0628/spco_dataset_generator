@@ -23,8 +23,11 @@ class SpCoDataGenerator():
             list = [row for row in reader]
 
         for i in range(len(list)):
-            r = list[i][0].split()
-            utterance_list.append(r)
+            r = list[i][0].replace(',', '') # コンマを削除
+            s = r.replace('.', '') # ピリオドを削除
+            t = s.split()
+            utterance_list.append(t)
+
 
 
         FilePath = "/root/HSR/catkin_ws/src/spco_dataset_generator/data/output/test/sentence_spco.csv"
