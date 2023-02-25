@@ -26,9 +26,9 @@ import csv
 # for i in range(len(folders)):
 #     csv_files = os.listdir(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
 #     for j in range(len(csv_files)):
-#         shutil.copyfile(PLACE_IMG_PRE_DATA + "{}/".format(i + 1) + "ft{}.csv".format(j + 1), PLACE_IMG_DATA + "ft{}.csv".format((j + 1) + 6*i + 150)) #0, 30, 60, 90, 120
-
+#         shutil.copyfile(PLACE_IMG_PRE_DATA + "{}/".format(i + 1) + "ft{}.csv".format(j + 1), PLACE_IMG_DATA + "ft{}.csv".format((j + 1) + 5*i + 40)) #0, 30, 60, 90, 120
 #
+
 
 ########################################
 # # 画像
@@ -54,14 +54,14 @@ import csv
 #             shutil.copyfile(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1) + "{}_Object_BOO.csv".format(j + 1),
 #                         OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 6*i + 150))  # 4, 33, 62, 91, 120, 150
 
-# #
+#
 folders = os.listdir(OBJECT_PRE_FREQUENCY_DATA)
 
 for i in range(len(folders)):
     csv_files = os.listdir(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1))
     for j in range(len(csv_files)):
         shutil.copyfile(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1) + "{}_Object_BOO.csv".format(j + 1),
-                        OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 6*i + 150)) #0, 30,
+                        OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 5*i + 40)) #0, 30,
 
 
 ########################################
