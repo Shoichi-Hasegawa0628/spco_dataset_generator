@@ -13,7 +13,7 @@ class ImageFeatureServer():
     def image_server(self):
         files = os.listdir(PLACE_IMAGE_DATA)
         for i in range(len(files)):
-            self.frame = cv2.imread(PLACE_IMAGE_DATA + "/{}.png".format(i + 81))
+            self.frame = cv2.imread(PLACE_IMAGE_DATA + "/{}.png".format(i))
 
             convert_img = places365.Image.fromarray(self.frame)  # convert into PIL
             input_img = places365.V(self.tf(convert_img).unsqueeze(0))
@@ -21,7 +21,7 @@ class ImageFeatureServer():
             h_x = places365.F.softmax(logit, 1).data.squeeze()
 
             # save image feature
-            fp = open(PLACE_IMG_DATA + '/ft' + str(i + 81) + '.csv', 'a')
+            fp = open(PLACE_IMG_DATA + '/ft' + str(i+1) + '.csv', 'a')
             h_x_numpy = h_x.to('cpu').detach().numpy().copy()
             fp.write(','.join(map(str, h_x_numpy)))
             fp.write('\n')

@@ -20,7 +20,7 @@ class ImageFeatureServer():
             if not os.path.exists(PLACE_IMG_PRE_DATA + "{}".format(i + 1)):
                 os.makedirs(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
             for j in tqdm(range(len(files))):
-                self.frame = cv2.imread(PLACE_IMAGE_DATA + "{}".format(i + 1) + "/{}.png".format(j))
+                self.frame = cv2.imread(PLACE_IMAGE_DATA + "{}".format(i+1) + "/{}.png".format(j))
 
                 convert_img = places365.Image.fromarray(self.frame)  # convert into PIL
                 input_img = places365.V(self.tf(convert_img).unsqueeze(0))

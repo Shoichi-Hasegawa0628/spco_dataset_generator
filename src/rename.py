@@ -22,12 +22,12 @@ import csv
 
 
 # # 特徴量
-# folders = os.listdir(PLACE_IMG_PRE_DATA)
-# for i in range(len(folders)):
-#     csv_files = os.listdir(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
-#     for j in range(len(csv_files)):
-#         shutil.copyfile(PLACE_IMG_PRE_DATA + "{}/".format(i + 1) + "ft{}.csv".format(j + 1), PLACE_IMG_DATA + "ft{}.csv".format((j + 1) + 5*i + 40)) #0, 30, 60, 90, 120
-#
+folders = os.listdir(PLACE_IMG_PRE_DATA)
+for i in range(len(folders)):
+    csv_files = os.listdir(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
+    for j in range(len(csv_files)):
+        shutil.copyfile(PLACE_IMG_PRE_DATA + "{}/".format(i + 1) + "ft{}.csv".format(j + 1), PLACE_IMG_DATA + "ft{}.csv".format((j + 1) + 6*i + 90)) #0, 30, 60, 90, 120
+
 
 
 ########################################
@@ -37,7 +37,7 @@ import csv
 #     img_files = os.listdir(PLACE_IMG_PRE_DATA + "{}/".format(i + 1))
 #     for j in range(len(img_files)):
 #         shutil.copyfile(PLACE_IMG_PRE_DATA + "{}/".format(i + 1) + "{}.png".format(j),
-#                         PLACE_IMG_DATA + "{}.png".format((j + 1) + 60*i + 0)) # 0, 180, 360を後ろに書く
+#                         PLACE_IMG_DATA + "{}.png".format((j) + 6*i + 90)) # 0, 180, 360を後ろに書く
 
 
 ########################################
@@ -55,13 +55,13 @@ import csv
 #                         OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 6*i + 150))  # 4, 33, 62, 91, 120, 150
 
 #
-folders = os.listdir(OBJECT_PRE_FREQUENCY_DATA)
-
-for i in range(len(folders)):
-    csv_files = os.listdir(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1))
-    for j in range(len(csv_files)):
-        shutil.copyfile(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1) + "{}_Object_BOO.csv".format(j + 1),
-                        OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 5*i + 40)) #0, 30,
+# folders = os.listdir(OBJECT_PRE_FREQUENCY_DATA)
+#
+# for i in range(len(folders)):
+#     csv_files = os.listdir(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1))
+#     for j in range(len(csv_files)):
+#         shutil.copyfile(OBJECT_PRE_FREQUENCY_DATA + "{}/".format(i + 1) + "{}_Object_BOO.csv".format(j + 1),
+#                         OBJECT_FREQUENCY_DATA + "{}_Object_BOO.csv".format((j + 1) + 5*i + 40)) #0, 30,
 
 
 ########################################
