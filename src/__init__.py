@@ -23,11 +23,15 @@ place_names = ["living", "kitchen", "bathroom"]
 #                      'pig_doll', 'sheep_doll', 'penguin_doll', 'airplane_toy',
 #                      'car_toy', 'truck_toy', 'tooth_paste', 'towel',
 #                      'cup', 'treatments', 'sponge', 'bath_slipper']
+object_dictionary = ['bowl', 'pitcher_base', 'apple', 'orange', 'cracker_box', 'pudding_box',
+                     'coffee', 'muscat', 'sheep_doll', 'penguin_doll', 'car_toy', 'truck_toy', 'towel',
+                     'cup', 'sponge', 'bath_slipper']
+
 # object_dictionary = ['plate', 'bowl', 'pitcher_base', 'banana', 'apple', 'orange', 'cracker_box', 'pudding_box',
 #                      'chips_bag', 'coffee', 'muscat', 'fruits_juice', 'pig_doll', 'sheep_doll', 'penguin_doll',
 #                      'airplane_toy', 'car_toy', 'truck_toy', 'tooth_paste', 'towel', 'cup', 'treatments', 'sponge',
 #                      'bath_slipper', 'dolphin_shaped_sponge', 'flog_shaped_sponge']
-
+#
 # object_dictionary = ['Person', 'Sneakers', 'Chair', 'Other Shoes', 'Hat', 'Car', 'Lamp', 'Glasses', 'Bottle', 'Desk', 'Cup',
 #         'Street Lights', 'Cabinet/shelf', 'Handbag/Satchel', 'Bracelet', 'Plate', 'Picture/Frame', 'Helmet', 'Book',
 #         'Gloves', 'Storage box', 'Boat', 'Leather Shoes', 'Flower', 'Bench', 'Potted Plant', 'Bowl/Basin', 'Flag',
@@ -70,6 +74,6 @@ place_names = ["living", "kitchen", "bathroom"]
 #         'Scallop', 'Noddles', 'Comb', 'Dumpling', 'Oyster', 'Table Tennis paddle', 'Cosmetics Brush/Eyeliner Pencil',
 #         'Chainsaw', 'Eraser', 'Lobster', 'Durian', 'Okra', 'Lipstick', 'Cosmetics Mirror', 'Curling', 'Table Tennis']
 
-object_dictionary = ['plate', 'bowl', 'pitcher_base', 'cracker_box', 'pudding_box',
-                     'chips_bag', 'coffee', 'muscat', 'fruits_juice', 'pig_doll',
-                     'sheep_doll', 'penguin_doll', 'treatments', 'sponge', 'bath_slipper']
+# object_dictionary = ['plate', 'bowl', 'pitcher_base', 'cracker_box', 'pudding_box',
+#                      'chips_bag', 'coffee', 'muscat', 'fruits_juice', 'pig_doll',
+#                      'sheep_doll', 'penguin_doll', 'treatments', 'sponge', 'bath_slipper']
