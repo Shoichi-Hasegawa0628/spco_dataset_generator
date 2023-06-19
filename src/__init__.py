@@ -17,15 +17,20 @@ place_names = ["living", "kitchen", "bathroom"]
 # robot_poses = [[2.48, 0.18], [-0.96, -0.16], [-0.10, 1.08]] #real_v1
 # robot_poses = [[0.76, -2.41], [0.53, 0.99], [1.69, 0.09]] # real_v2
 
+object_dictionary = ['bowl', 'banana', 'apple', 'orange', 'cracker_box', 'pudding_box',
+                     'chips_bag', 'coffee', 'muscat', 'fruits_juice', 'pig_doll', 'sheep_doll',
+                     'penguin_doll', 'airplane_toy', 'car_toy', 'truck_toy', 'towel',
+                     'cup', 'sponge', 'bath_slipper']
+
 # object_dictionary = ['plate', 'bowl', 'pitcher_base', 'banana',
 #                      'apple', 'orange', 'cracker_box', 'pudding_box',
 #                      'chips_bag', 'coffee', 'muscat', 'fruits_juice',
 #                      'pig_doll', 'sheep_doll', 'penguin_doll', 'airplane_toy',
 #                      'car_toy', 'truck_toy', 'tooth_paste', 'towel',
 #                      'cup', 'treatments', 'sponge', 'bath_slipper']
-object_dictionary = ['bowl', 'pitcher_base', 'apple', 'orange', 'cracker_box', 'pudding_box',
-                     'coffee', 'muscat', 'sheep_doll', 'penguin_doll', 'car_toy', 'truck_toy', 'towel',
-                     'cup', 'sponge', 'bath_slipper']
+# object_dictionary = ['bowl', 'pitcher_base', 'apple', 'orange', 'cracker_box', 'pudding_box',
+#                      'coffee', 'muscat', 'sheep_doll', 'penguin_doll', 'car_toy', 'truck_toy', 'towel',
+#                      'cup', 'sponge', 'bath_slipper']
 
 # object_dictionary = ['plate', 'bowl', 'pitcher_base', 'banana', 'apple', 'orange', 'cracker_box', 'pudding_box',
 #                      'chips_bag', 'coffee', 'muscat', 'fruits_juice', 'pig_doll', 'sheep_doll', 'penguin_doll',

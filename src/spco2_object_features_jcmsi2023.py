@@ -104,14 +104,10 @@ class ObjectFeatureServer():
     def extracting_label(self):
         object_list = []
         for i in range(len(self.detect_object_info)):
-            if self.detect_object_info[i].Class == "chips_bag" or\
-                    self.detect_object_info[i].Class == "fruits_juice" or\
-                    self.detect_object_info[i].Class == "banana" or\
-                    self.detect_object_info[i].Class == "plate" or\
-                    self.detect_object_info[i].Class == "pig_doll" or\
-                    self.detect_object_info[i].Class == "airplane_toy" or\
-                    self.detect_object_info[i].Class == "treatments" or\
-                    self.detect_object_info[i].Class == "tooth_paste":
+            if self.detect_object_info[i].Class == "plate" or\
+                self.detect_object_info[i].Class == "pitcher_base" or\
+                self.detect_object_info[i].Class == "treatments" or\
+                self.detect_object_info[i].Class == "tooth_paste":
                 pass
             else:
                 object_list.append(self.detect_object_info[i].Class)

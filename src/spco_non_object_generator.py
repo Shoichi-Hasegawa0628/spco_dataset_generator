@@ -18,7 +18,7 @@ class SpCoNonObjectGenerator():
             ## BoO
             with open(OBJECT_FREQUENCY_DATA + '{}_Object_BOO.csv'.format(i + 1), 'w') as f:
                 writer = csv.writer(f)
-                writer.writerow([0] * 16) # JCMSI用
+                writer.writerow([0] * 20) # JCMSI用
         return
 
 
