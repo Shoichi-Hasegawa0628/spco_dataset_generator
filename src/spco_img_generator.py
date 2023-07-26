@@ -13,7 +13,7 @@ class ImageFeatureServer():
     def image_server(self):
         files = os.listdir(PLACE_IMAGE_DATA)
         for i in range(len(files)):
-            self.frame = cv2.imread(PLACE_IMAGE_DATA + "/{}.png".format(i))
+            self.frame = cv2.imread(PLACE_IMAGE_DATA + "/{}.png".format(i+1)) ##
 
             convert_img = places365.Image.fromarray(self.frame)  # convert into PIL
             input_img = places365.V(self.tf(convert_img).unsqueeze(0))

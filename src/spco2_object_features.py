@@ -44,10 +44,10 @@ class ObjectFeatureServer():
             self.object_server(i + 1, raw_img)
 
     def object_server(self, step, image):
-        if (os.path.exists(SPCO_DATA_PATH + "/tmp_boo/Object.csv") == True):
-            with open(SPCO_DATA_PATH + "/tmp_boo/Object.csv", 'r') as f:
-                reader = csv.reader(f)
-                self.object_list = [row for row in reader]
+        # if (os.path.exists(SPCO_DATA_PATH + "/tmp_boo/Object.csv") == True):
+        #     with open(SPCO_DATA_PATH + "/tmp_boo/Object.csv", 'r') as f:
+        #         reader = csv.reader(f)
+        #         self.object_list = [row for row in reader]
             # print("pre_object_list: {}\n".format(self.object_list))
 
         goal = yolo_ros_msgs.AllDetectionDataGoal(0, image)
@@ -65,6 +65,8 @@ class ObjectFeatureServer():
                 self.Object_BOO = [[0] * len(object_dictionary)]
                 # self.taking_single_image(trialname, req.step)
                 self.save_data(step)
+                # self.Object_BOO = []
+                self.object_list = []
                 # return spco_data_objectResponse(True)
                 return
 
@@ -75,6 +77,8 @@ class ObjectFeatureServer():
                 self.make_object_boo()
                 # self.taking_single_image(trialname, req.step)
                 self.save_data(step)
+                # self.Object_BOO = []
+                self.object_list = []
                 # return spco_data_objectResponse(True)
                 return
 
@@ -83,6 +87,8 @@ class ObjectFeatureServer():
         self.make_object_boo()
         # self.taking_single_image(trialname, req.step)
         self.save_data(step)
+        # self.Object_BOO = []
+        self.object_list = []
         # print("object_list: {}\n".format(self.object_list))
         # print("dictionary: {}\n".format(object_dictionary))
         # print("Bag-of-Objects: {}\n".format(self.Object_BOO))
@@ -123,17 +129,17 @@ class ObjectFeatureServer():
         return
 
     def save_data(self, step):
-        # 全時刻の観測された物体のリストを保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/Object.csv"
-        with open(FilePath, 'w') as f:
-            writer = csv.writer(f)
-            writer.writerows(self.object_list)
-
-        # 教示ごとに観測された物体のリストを保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object.csv"
-        with open(FilePath, 'w') as f:
-            writer = csv.writer(f)
-            writer.writerows(self.object_list)
+        # # 全時刻の観測された物体のリストを保存
+        # FilePath = SPCO_DATA_PATH + "/tmp_boo/Object.csv"
+        # with open(FilePath, 'w') as f:
+        #     writer = csv.writer(f)
+        #     writer.writerows(self.object_list)
+        #
+        # # 教示ごとに観測された物体のリストを保存
+        # FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object.csv"
+        # with open(FilePath, 'w') as f:
+        #     writer = csv.writer(f)
+        #     writer.writerows(self.object_list)
 
         # 教示ごとのBag-Of-Objects特徴量を保存
         FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object_BOO.csv"
@@ -141,11 +147,11 @@ class ObjectFeatureServer():
             writer = csv.writer(f)
             writer.writerows(self.Object_BOO)
 
-        # 教示ごとの物体の辞書を保存
-        FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object_W_list.csv"
-        with open(FilePath, 'w') as f:
-            writer = csv.writer(f, lineterminator='\n')
-            writer.writerow(object_dictionary)
+        # # 教示ごとの物体の辞書を保存
+        # FilePath = SPCO_DATA_PATH + "/tmp_boo/" + str(step) + "_Object_W_list.csv"
+        # with open(FilePath, 'w') as f:
+        #     writer = csv.writer(f, lineterminator='\n')
+        #     writer.writerow(object_dictionary)
 
         return
 
